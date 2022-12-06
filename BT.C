@@ -32,9 +32,9 @@ void preorderTra(node *root){
 */
 void innerorderTra(node *root){
     if(root==NULL) return;  //if Root is Null then return from function
-    preorderTra(root->left);
+    innerorderTra(root->left);
     printf("%d -> ",root->data);
-    preorderTra(root->right);
+    innerorderTra(root->right);
 }
 /*
     in Post Order Rote node exist after left and Right
@@ -42,8 +42,8 @@ void innerorderTra(node *root){
 */
 void postorderTra(node *root){
     if(root==NULL) return;
-    preorderTra(root->left);
-    preorderTra(root->right);
+    postorderTra(root->left);
+    postorderTra(root->right);
     printf("%d -> ",root->data);
 }
 
@@ -96,9 +96,9 @@ void main(){
        scanf("%d",&option);
        if(option != 1){
 	  if(root != NULL){
-	     clrscr();
-	     options();
-	     printf("\nTree  is -: ");
+	   //  clrscr();
+	    // options();
+	     printf("\nTree  is -:\n ");
 	  }
 	  else{
 	      printf("List is Empty..\n");
