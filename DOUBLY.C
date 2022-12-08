@@ -8,14 +8,14 @@ struct node{
 };
 typedef struct node node;
 node *head = NULL;
-int createNode(int data){
+node *createNode(int data){
     node *newnode;
     newnode = (node*)malloc(sizeof(node));
     newnode->data = data;
     size++;
     return newnode;
 }
-int endNode()
+node *endNode()
 {
    node *ptr;
    ptr = head;
@@ -24,7 +24,7 @@ int endNode()
    }
    return ptr;
 }
-int nodeAt(int index){
+node *nodeAt(int index){
     int count = 0;
     node *ptr;
     ptr = head;
@@ -201,7 +201,7 @@ void search(int data){
 		printf("Link list is Empty....\n");
 	}
 	else{
-		int count=0,index=0;
+		int index=0;
 		node *ptr;
 		ptr = head;
 		while(ptr != NULL){
@@ -434,5 +434,4 @@ void main(){
 		printf("Invalid option...\n");
 	    }
        }
-   getch();
 }

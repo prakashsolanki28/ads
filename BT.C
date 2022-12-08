@@ -27,14 +27,14 @@ void preorderTra(node *root){
     preorderTra(root->right);
 }
 /*
-    in inner Order Root node exist between left and Right
+    in in Order Root node exist between left and Right
     ---  L Child : RootNode : R Child  ---
 */
-void innerorderTra(node *root){
+void inorderTra(node *root){
     if(root==NULL) return;  //if Root is Null then return from function
-    innerorderTra(root->left);
+    inorderTra(root->left);
     printf("%d -> ",root->data);
-    innerorderTra(root->right);
+    inorderTra(root->right);
 }
 /*
     in Post Order Rote node exist after left and Right
@@ -118,7 +118,7 @@ void main(){
 	   postorderTra(root);
 	   break;
 	   case 5:
-	   innerorderTra(root);
+	   inorderTra(root);
 	   break;
 	   default:
 	   exit(0);

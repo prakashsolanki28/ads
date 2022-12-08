@@ -14,7 +14,7 @@ node *createNode(data){
      size++;
      return newnode;
 }
-int endNode(){
+node *endNode(){
 
     node *ptr;
     ptr = head;
@@ -339,5 +339,4 @@ void main()
 		break;
 	   }
 	}
-    getch();
 }
