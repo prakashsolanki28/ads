@@ -80,48 +80,72 @@ void printTree(node *root){
     printTree(root->left);
     printTree(root->right);
 }
+
+int search(node *root,int data){
+   int temp = 0;
+   if(root==NULL) return 0;
+   if(root->data == data){
+       temp++;
+       return 1;
+   }
+   search(root->left,data);
+   search(root->right,data);
+   if(temp != 0)
+	return 1;
+   else
+	return 0;
+}
+
+void deleteTree(node *root){
+	if(root == NULL) return;
+	deleteTree(root->left);
+	deleteTree(root->right);
+	printf("\n Deleteing Node : %d \n",root->data);
+	free(root);
+}
+
 void options(){
    printf("Options -: \n");
-   printf("1. Create Tree\t2. Print Tree \n3. Preorder Tree\t4. Postorder Tree.\t Innserorder Tree\n");
-
+   printf("1. Create Tree\t2. Print Tree Data \n3. Search Data\t4. Delete Tree.\n");
 }
-void main(){
 
+void main(){
    node *root = NULL;
-   int option;
+   int option,data,temp;
    clrscr();
    options();
    while(1){
        printf("\nSelect a Option -: ");
        scanf("%d",&option);
-       if(option != 1){
-	  if(root != NULL){
-	   //  clrscr();
-	    // options();
-	     printf("\nTree  is -:\n ");
-	  }
-	  else{
-	      printf("List is Empty..\n");
-	  }
-       }
        switch(option){
 	   case 1:
 	   root = treeInput(0);
 	   break;
 	   case 2:
-	   printTree(root);
+	   printTree(root); printf("\n");
+	   printf("In Order -: "); inorderTra(root);
+	   printf("\nPreorder -: "); preorderTra(root);
+	   printf("\nPostorder -: "); postorderTra(root);
+	   printf("\n");
 	   break;
 	   case 3:
-	   preorderTra(root);
+	   printf("\nEnter a data -:");
+	   scanf("%d",&data);
+	   temp = search(root,data);
+	   if(temp == 1){
+	      printf("Data found ... %d \n",temp);
+	   }
+	   else{
+	      printf("Data not found... %d \n",temp);
+	   }
 	   break;
 	   case 4:
-	   postorderTra(root);
-	   break;
-	   case 5:
-	   inorderTra(root);
+	   deleteTree(root);
 	   break;
 	   default:
-	   exit(0);
+	     exit(0);
+	   break;
        }
    }
+   getch();
 }

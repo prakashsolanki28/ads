@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<title></title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+
+		body {
+			background-color: #000 !important;
+			color: #fff;
+		}
+
+		.list-none {
+			list-style: none;
+		}
+
+		.linklist {
+			display: flex;
+			list-style: none;
+			overflow-x: auto;
+			cursor: grab;
+		}
+
+		.linklist::-webkit-scrollbar {
+			display: none;
+		}
+
+		.linklist li {
+			border: 1px solid #fff;
+			display: flex;
+			margin: 10px;
+			position: relative;
+			max-height: 54px;
+		}
+
+		.linklist li::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 91%;
+			width: 19%;
+			height: 5%;
+			background: #fff;
+		}
+
+		.linklist li::after {
+			content: '';
+			position: absolute;
+			top: 46%;
+			left: 89%;
+			width: 7px;
+			height: 7px;
+			border-radius: 50%;
+			background: #fff;
+		}
+
+		.linklist li:nth-last-child(1)::before {
+			display: none;
+		}
+
+		.linklist li div:nth-child(1) {
+			border-right: 1px solid #fff;
+			padding: 15px;
+			min-width: 60px;
+		}
+
+		.linklist li div:nth-child(2) {
+			border-left: 1px solid #fff;
+			padding: 15px;
+			min-width: 160px;
+		}
+
+		.linklist li span {
+			background-color: #333;
+			color: white;
+			position: absolute;
+			z-index: 9999;
+			left: 50%;
+			transform: translateX(-50%);
+			-webkit-transform: translateX(-50%);
+			-moz-transform: translateX(-50%);
+			-ms-transform: translateX(-50%);
+			-o-transform: translateX(-50%);
+			font-size: 12px;
+			min-width: 100%;
+			height: 100%;
+			padding: 10px 15px;
+			top: -20px;
+			transition: 0.5s;
+			-webkit-transition: 0.5s;
+			-moz-transition: 0.5s;
+			-ms-transition: 0.5s;
+			-o-transition: 0.5s;
+			opacity: 0;
+		}
+
+		.linklist li:hover span {
+			top: 0px;
+			opacity: 1;
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<ul id="linklistdata" class="linklist pt-3"></ul>
+	<ul class="list-none d-flex border-top pt-3">
+		<li><button id="insertFirst" class="btn btn-primary mx-2 rounded-0">Add Start</button></li>
+		<li><button id="insertLast" class="btn btn-primary mx-2 rounded-0">Add Last</button></li>
+		<li><button id="insertAt" class="btn btn-primary mx-2 rounded-0">Add On Index</button></li>
+		<li><button id="removeAt" class="btn btn-primary mx-2 rounded-0">Remove At</button></li>
+		<li><button id="clean" class="btn btn-primary mx-2 rounded-0">Clean</button></li>
+	</ul>
+
+	<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+	<script type="text/javascript" src="./linklist.js"></script>
+	<script type="text/javascript" src="./main.js"></script>
+</body>
+
+</html>
